@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Middleware;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
@@ -15,6 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewData["Visit"] = Response.HttpContext.Items[LastVisitCookie.CookieName];
         return View();
     }
 

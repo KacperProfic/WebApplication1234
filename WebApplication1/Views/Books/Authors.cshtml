@@ -1,0 +1,33 @@
+@model List<AuthorViewModel>
+
+<h1 class="mb-4">Autorzy</h1>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+    <tr>
+        <th>Nazwa autora</th>
+        <th>Książki</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var author in Model)
+    {
+    <tr>
+        <td>@author.AuthorName</td>
+        <td>
+            <details>
+                <summary>Książki</summary>
+                <ul class="list-group">
+                    @foreach (var book in author.BookTitles)
+                    {
+                    <li class="list-group-item">
+                        <a asp-action="Edit" asp-controller="Books" asp-route-id="@book.BookId">@book.Title</a>
+                    </li>
+                    }
+                </ul>
+            </details>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>

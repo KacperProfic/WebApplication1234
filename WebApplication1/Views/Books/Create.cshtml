@@ -1,0 +1,37 @@
+@model WebApplication1.Models.BookViewModel
+
+<h1 class="mb-4">Dodaj książkę</h1>
+
+<form asp-action="Create" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Isbn13" class="form-label"></label>
+        <input asp-for="Isbn13" class="form-control" />
+        <span asp-validation-for="Isbn13" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="NumPages" class="form-label"></label>
+        <input asp-for="NumPages" class="form-control" />
+        <span asp-validation-for="NumPages" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PublicationDate" class="form-label"></label>
+        <input asp-for="PublicationDate" class="form-control" type="date" />
+        <span asp-validation-for="PublicationDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="LanguageId" class="form-label"></label>
+        <select asp-for="LanguageId" asp-items="ViewBag.LanguageId" class="form-select"></select>
+        <span asp-validation-for="LanguageId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PublisherId" class="form-label"></label>
+        <select asp-for="PublisherId" asp-items="ViewBag.PublisherId" class="form-select"></select>
+        <span asp-validation-for="PublisherId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
